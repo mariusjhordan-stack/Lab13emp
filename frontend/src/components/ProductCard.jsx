@@ -1,2 +1,29 @@
-// Recibe un producto como prop y presenta sus datos comerciales.
-export default function ProductCard({product}){return <article className="card"><img src={product.imagen} alt={product.nombre} className="w-full h-[245px] object-cover"/><div className="p-5"><span className="text-xs uppercase tracking-[.13em] text-[#718675]">{product.categoria_nombre}</span><h3 className="serif text-[21px] mt-2 mb-2">{product.nombre}</h3><p className="text-sm leading-6 text-[#748078] min-h-[48px]">{product.descripcion}</p><div className="mt-4 flex justify-between items-center"><strong className="text-[#415d4a]">S/ {Number(product.precio).toFixed(2)}</strong><button className="rounded-full border border-[#dce4dc] px-4 py-2 text-sm text-[#415d4a] hover:bg-[#eef3ed]">Ver detalle</button></div></div></article>}
+// La tarjeta recibe un producto como prop y presenta sus datos comerciales.
+export default function ProductCard({ product }) {
+  return (
+    <article className="card">
+      <img
+        src={product.imagen}
+        alt={product.nombre}
+        className="w-full h-[245px] object-cover"
+      />
+      <div className="p-5">
+        <span className="text-xs uppercase tracking-[.13em] text-[#718675]">
+          {product.categoria_nombre}
+        </span>
+        <h3 className="serif text-[21px] mt-2 mb-2">{product.nombre}</h3>
+        <p className="text-sm leading-6 text-[#748078] min-h-[48px]">
+          {product.descripcion}
+        </p>
+        <div className="mt-4 flex justify-between items-center">
+          <strong className="text-[#415d4a]">
+            S/ {Number(product.precio).toFixed(2)}
+          </strong>
+          <button className="rounded-full border border-[#dce4dc] px-4 py-2 text-sm text-[#415d4a] hover:bg-[#eef3ed]">
+            Ver detalle
+          </button>
+        </div>
+      </div>
+    </article>
+  )
+}
