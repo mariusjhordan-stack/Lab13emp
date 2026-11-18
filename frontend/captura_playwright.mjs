@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const browser=await chromium.launch({headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1050},deviceScaleFactor:1});
+await page.goto('http://127.0.0.1:5174',{waitUntil:'domcontentloaded'}); await page.waitForFunction(() => [...document.images].every(i => i.complete)); await page.screenshot({path:'../../capturas/ej06_01_catalogo_escritorio.png',fullPage:true});
+await page.getByRole('button',{name:'Plantas'}).click(); await page.waitForFunction(() => [...document.images].every(i => i.complete)); await page.screenshot({path:'../../capturas/ej05_01_filtro_plantas.png',fullPage:true});
+await page.setViewportSize({width:390,height:844}); await page.screenshot({path:'../../capturas/ej06_02_catalogo_movil.png',fullPage:true});
+await page.setViewportSize({width:1440,height:1000});
+await page.goto('http://127.0.0.1:8001/admin/login/?next=/admin/',{waitUntil:'domcontentloaded'}); await page.screenshot({path:'../../capturas/ej04_01_admin_login.png',fullPage:true});
+await page.locator('#id_username').fill('admin'); await page.locator('#id_password').fill('admin12345'); await page.locator('input[type=submit]').click(); await page.waitForURL('**/admin/'); await page.screenshot({path:'../../capturas/ej04_02_admin_listas.png',fullPage:true});
+await page.goto('http://127.0.0.1:8001/admin/catalogo/producto/add/',{waitUntil:'domcontentloaded'}); await page.screenshot({path:'../../capturas/ej04_03_admin_formulario.png',fullPage:true});
+await page.goto('http://127.0.0.1:8001/api/productos/',{waitUntil:'domcontentloaded'}); await page.screenshot({path:'../../capturas/ej04_04_api_productos.png',fullPage:true});
+await page.goto('http://127.0.0.1:8001/api/categorias/',{waitUntil:'domcontentloaded'}); await page.screenshot({path:'../../capturas/ej04_05_api_categorias.png',fullPage:true});
+await page.goto('https://github.com/mariusjhordan-stack/Lab13emp',{waitUntil:'domcontentloaded',timeout:20000}).catch(()=>{}); await page.screenshot({path:'../../capturas/github_repositorio.png',fullPage:true});
+await browser.close();
