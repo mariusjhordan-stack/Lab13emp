@@ -1,1 +1,2 @@
+// Mantiene la selección en el estado de Home y notifica cada cambio.
 export default function CategoryFilter({categories,active,onChange}){return <div className="flex gap-2 overflow-x-auto pb-2">{[{id:'',nombre:'Todo el jardín'},...categories].map(c=><button key={c.id||'all'} onClick={()=>onChange(String(c.id))} className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm ${String(active)===String(c.id)?'bg-[#415d4a] text-white':'bg-white text-[#647269] border border-[#e7e9e3]'}`}>{c.nombre}</button>)}</div>}

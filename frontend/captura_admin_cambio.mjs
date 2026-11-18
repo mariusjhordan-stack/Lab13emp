@@ -1,0 +1,7 @@
+import {chromium} from 'playwright';
+const b=await chromium.launch({headless:true});const p=await b.newPage({viewport:{width:1440,height:1000}});
+await p.goto('http://127.0.0.1:5174',{waitUntil:'domcontentloaded'});await p.getByRole('button',{name:'Ramos'}).click();await p.waitForTimeout(700);await p.screenshot({path:'../../capturas/ej05_03_antes_cambio_admin.png',fullPage:true});
+await p.goto('http://127.0.0.1:8001/admin/login/?next=/admin/catalogo/producto/1/change/',{waitUntil:'domcontentloaded'});await p.locator('#id_username').fill('admin');await p.locator('#id_password').fill('admin12345');await p.locator('input[type=submit]').click();await p.waitForURL('**/admin/catalogo/producto/1/change/');
+await p.screenshot({path:'../../capturas/ej05_04_formulario_cambio_admin.png',fullPage:true});
+const desc=p.locator('#id_descripcion');await desc.fill('Ramo artesanal de peonías frescas, actualizado desde el panel administrativo.');await p.locator('#id_precio').fill('49.90');await p.locator('input[name="_save"]').click();await p.waitForURL('**/admin/catalogo/producto/');
+await p.goto('http://127.0.0.1:5174',{waitUntil:'domcontentloaded'});await p.getByRole('button',{name:'Ramos'}).click();await p.getByText('Ramo artesanal de peonías frescas, actualizado desde el panel administrativo.').waitFor();await p.screenshot({path:'../../capturas/ej05_05_despues_actualizacion_react.png',fullPage:true});await b.close();

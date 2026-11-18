@@ -5,6 +5,7 @@ import ProductList from '../components/ProductList'
 import {getCategorias,getProductos} from '../services/api'
 
 export default function Home(){
+  // El estado controla categorías, productos, filtro y mensajes de la interfaz.
   const [categories,setCategories]=useState([])
   const [products,setProducts]=useState([])
   const [active,setActive]=useState('')
