@@ -12,15 +12,15 @@ source venv/bin/activate
 python manage.py migrate
 python manage.py seed_catalogo
 python manage.py createsuperuser
-python manage.py runserver
+python manage.py runserver 127.0.0.1:8001
 ```
 
 ## Iniciar el frontend (otra terminal)
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev -- --port 5174
 ```
 
-Admin: http://127.0.0.1:8000/admin/ · API: http://127.0.0.1:8000/api/ · App: http://localhost:5173
+Admin: http://127.0.0.1:8001/admin/ · API: http://127.0.0.1:8001/api/ · App: http://localhost:5174
 El entorno local del laboratorio crea el usuario `admin` con contraseña `admin12345`.
