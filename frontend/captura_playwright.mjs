@@ -1,8 +1,8 @@
 import { chromium } from 'playwright';
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1050},deviceScaleFactor:1});
-await page.goto('http://127.0.0.1:5174',{waitUntil:'domcontentloaded'}); await page.waitForFunction(() => [...document.images].every(i => i.complete)); await page.screenshot({path:'../../capturas/ej06_01_catalogo_escritorio.png',fullPage:true});
-await page.getByRole('button',{name:'Plantas'}).click(); await page.waitForFunction(() => [...document.images].every(i => i.complete)); await page.screenshot({path:'../../capturas/ej05_01_filtro_plantas.png',fullPage:true});
+await page.goto('http://localhost:5175',{waitUntil:'domcontentloaded'}); await page.waitForFunction(() => document.images.length >= 15 && [...document.images].every(i => i.complete && i.naturalWidth > 0)); await page.screenshot({path:'../../capturas/ej06_01_catalogo_escritorio.png',fullPage:true});
+await page.getByRole('button',{name:'Plantas'}).click(); await page.waitForFunction(() => document.images.length === 3 && [...document.images].every(i => i.complete && i.naturalWidth > 0)); await page.screenshot({path:'../../capturas/ej05_01_filtro_plantas.png',fullPage:true});
 await page.setViewportSize({width:390,height:844}); await page.screenshot({path:'../../capturas/ej06_02_catalogo_movil.png',fullPage:true});
 await page.setViewportSize({width:1440,height:1000});
 await page.goto('http://127.0.0.1:8001/admin/login/?next=/admin/',{waitUntil:'domcontentloaded'}); await page.screenshot({path:'../../capturas/ej04_01_admin_login.png',fullPage:true});

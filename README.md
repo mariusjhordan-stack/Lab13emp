@@ -19,8 +19,8 @@ python manage.py runserver 127.0.0.1:8001
 ```bash
 cd frontend
 npm install
-npm run dev -- --port 5174
+npm run dev -- --port 5175
 ```
 
-Admin: http://127.0.0.1:8001/admin/ · API: http://127.0.0.1:8001/api/ · App: http://localhost:5174
+Admin: http://127.0.0.1:8001/admin/ · API: http://127.0.0.1:8001/api/ · App: http://localhost:5175
 El entorno local del laboratorio crea el usuario `admin` con contraseña `admin12345`.
