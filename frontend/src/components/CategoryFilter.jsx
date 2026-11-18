@@ -1,2 +1,25 @@
-// Mantiene la selección en el estado de Home y notifica cada cambio.
-export default function CategoryFilter({categories,active,onChange}){return <div className="flex gap-2 overflow-x-auto pb-2">{[{id:'',nombre:'Todo el jardín'},...categories].map(c=><button key={c.id||'all'} onClick={()=>onChange(String(c.id))} className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm ${String(active)===String(c.id)?'bg-[#415d4a] text-white':'bg-white text-[#647269] border border-[#e7e9e3]'}`}>{c.nombre}</button>)}</div>}
+import { Button } from '@/components/ui/button'
+
+// La selección se controla en Home; este componente comunica el filtro elegido.
+export default function CategoryFilter({ categories, active, onChange }) {
+  const opciones = [{ id: '', nombre: 'Todo el jardín' }, ...categories]
+
+  return (
+    <div className="flex gap-2 overflow-x-auto pb-2">
+      {opciones.map((categoria) => {
+        const seleccionada = String(active) === String(categoria.id)
+        return (
+          <Button
+            key={categoria.id || 'all'}
+            type="button"
+            variant={seleccionada ? 'default' : 'outline'}
+            onClick={() => onChange(String(categoria.id))}
+            className={`h-auto rounded-full px-5 py-2.5 ${seleccionada ? 'bg-[#415d4a] text-white hover:bg-[#344c3b]' : 'border-[#e7e9e3] bg-white text-[#647269]'}`}
+          >
+            {categoria.nombre}
+          </Button>
+        )
+      })}
+    </div>
+  )
+}

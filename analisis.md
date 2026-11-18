@@ -10,7 +10,7 @@
 
 **Funcionalidades:** listar productos disponibles, consultar categorías, filtrar el catálogo por categoría, mostrar estados de carga y error, y mantener el catálogo sincronizado con el panel administrativo de Django.
 
-**Campos del producto:** categoría, nombre, descripción, precio en soles, URL de imagen, disponibilidad y fecha de creación.
+**Campos del producto:** categoría, nombre, descripción, precio en soles, URL de imagen, cantidad disponible, estado de disponibilidad y fecha de creación.
 
 **Elementos de interfaz:** encabezado con marca y navegación; portada con llamado a explorar; filtros de categoría; tarjetas de producto con imagen, nombre, descripción y precio; estados vacíos, carga y error; pie de página informativo.
 

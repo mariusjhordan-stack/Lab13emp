@@ -13,6 +13,7 @@ class Producto(models.Model):
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     imagen = models.URLField()
+    cantidad_disponible = models.PositiveIntegerField(default=10)
     disponible = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
     def __str__(self): return self.nombre
